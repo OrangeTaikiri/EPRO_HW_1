@@ -21,10 +21,15 @@ public class Main {
                     a -> Kilometer in Meilen umrechnen
                     b -> Kilogramm in Pfund umrechnen
                     c -> Celsius in Fahrenheit
-                    x -> Programm beenden 
+                    d -> eigene Umrechnung druchführen 
+                    x -> Programm beenden
                     """);
 
-            option =  scanner.next().charAt(0);
+            option = scanner.next().charAt(0);
+
+            if (option == 'x') {
+                break;
+            }
 
 
             System.out.println("Bitte geben sie die zu konvertierente Menge an");
@@ -34,25 +39,36 @@ public class Main {
             scanner.nextLine();
 
             // doing the conversion km to mi
-            if(option == 'a') {
+            if (option == 'a') {
                 System.out.printf("%.2f km ergeben %.2f Meilen\n", value, value * 0.621371F);
             }
 
             // doing the conversion Kilo to Pound
-            if(option == 'b') {
+            if (option == 'b') {
                 System.out.printf("%.2f Kilo ergeben %.2f Pfund\n", value, value * 2.2046F);
             }
 
             // doing the conversion celsius to fahrenheit
-            if(option == 'c') {
-                System.out.printf("%.2f Celsius Grad ergeben %.2f Fahrenheit\n", value, (value * 9/5) + 32 );
+            if (option == 'c') {
+                System.out.printf("%.2f Celsius Grad ergeben %.2f Fahrenheit\n", value, (value * 9 / 5) + 32);
+            }
+
+            // doing the custom conversion
+            if (option == 'd') {
+                System.out.println("Geben sie Ausgangseinheit an");
+                String startUnit = scanner.next();
+                System.out.println("Geben sie Zieleinheit an");
+                String targetUnit = scanner.next();
+                System.out.println("Bitte geben Sie den gewünschten Umrechnungsfaktor ein:");
+                float factor = scanner.nextFloat();
+                System.out.printf("%.2f %s ergeben %.2f %s ", value, startUnit,  value * factor, targetUnit);
             }
 
             System.out.println("Möchten Sie noch eine Einheit umrechnen? nein -> x");
-            option =  scanner.next().charAt(0);
+            option = scanner.next().charAt(0);
 
         }
-        while (option !='x');
+        while (option != 'x');
     }
 
 }
