@@ -21,7 +21,7 @@ public class Main {
                     a -> Kilometer in Meilen umrechnen
                     b -> Kilogramm in Pfund umrechnen
                     c -> Celsius in Fahrenheit
-                    x -> Celsius in Fahrenheit umrechnen
+                    x -> Programm beenden 
                     """);
 
             option =  scanner.next().charAt(0);
